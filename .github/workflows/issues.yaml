@@ -2,7 +2,7 @@ name: Exercise Output Project
 on: issues
 jobs:
   issue_job:
-  runs-on: ubuntu-latest
-  steps:
-  - name: Output Issue details
-    run: echo "${{ toJSON(github.event.) }}"
+    runs-on: ubuntu-latest
+    steps:
+    - name: Output Issue details
+      run: echo "${{ toJSON(github.event) }}"
