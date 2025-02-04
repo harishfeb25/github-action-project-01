@@ -1,7 +1,7 @@
 name: Exercise Project
 on: push
 jobs:
-  lint-test-build:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - name: Get Code
@@ -16,3 +16,28 @@ jobs:
       run: npm run lint
     - name: Run test
       run: npm test
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Code
+      uses: actions/checkout@v3
+    - name: Install NodeJS
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Run test
+      run: npm test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Code
+      uses: actions/checkout@v3
+    - name: Install NodeJS
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Build code
+      run: npm run build
+    - name: Deploy code
+      run: echo "Deploying....."
+
